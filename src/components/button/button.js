@@ -46,9 +46,9 @@ const Button = (props) => {
         } 
         ${loading ? "loading" : ""} ${props.className ? props.className : ""}`}
     >
-      {loading && variant === "primary" ? (
+      {loading && (variant === ("primary" || "destructive")) ? (
         <Loader variant="primary" size="xs" />
-      ) : loading && (variant === "secondary" || variant === "tertiary") ? (
+      ) : loading && (variant === ("secondary" || "tertiary")) ? (
         <Loader variant="secondary" size="xs" />
       ) : loading && variant === "disabled" ? (
         <Loader variant="disabled" size="xs" />
