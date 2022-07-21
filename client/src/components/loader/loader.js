@@ -5,7 +5,7 @@ const Loader = (props) => {
   const { size, variant } = props;
   return (
     <div
-      className={`loader-container ${size ? size : ""} ${
+      className={`loader-container ${size === ("xs" || "s" || "m")? size : "l"} ${
         variant === ("secondary" || "disabled") ? variant : "primary"
       }`}
     >
