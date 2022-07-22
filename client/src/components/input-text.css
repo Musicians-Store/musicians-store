@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext');
+
+input::placeholder {
+    font-family: Outfit;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.02em;
+    text-align: left;
+    color: #989DA2;
+}
+
+
+input {
+  border: 1px solid #989DA2;
+  height: 40px;
+  width: 347px;
+  left: 24px;
+  top: 40px;
+  border-radius: 4px;
+  padding: 8px;
+  background: #FFFFFF;
+  box-sizing: border-box;
+  padding-right: 35px;
+  outline: none;
+}
+
+input:focus {
+    outline: none;
+    border: 1px solid #989DA2;
+}
+
+input.success {
+    border: 1px solid #007D50;
+}
+
+input.warning {
+    border: 1px solid #D8A31A;
+}
+input.error {
+    border: 1px solid #C11D1D;
+}
+input.disable {
+    background: Grey/400;
+    border: 1px solid #989DA2;
+}
+
+.input-text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-text-label {
+    width: 73px;
+    height: 24px;
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.02em;
+    color: #181818;
+}
+
+.input-icon-container {
+    vertical-align: 'bottom';
+}
+
+.additional-info-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.additional-info{
+    font-family: Outfit;
+    font-size: 16px;
+    font-weight: 400;
+    height: 29.38;
+    letter-spacing: 0.02em;
+    text-align: center;
+    padding: 0;
+    vertical-align: middle;
+    margin-top: 6px;
+    color: #181818;
+}
+
+.additional-info-success {
+    color: #007D50;
+}
+
+.additional-info-warning {
+    color: #906800;
+}
