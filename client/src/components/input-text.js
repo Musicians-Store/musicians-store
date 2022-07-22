@@ -50,10 +50,12 @@ const InputText = (props) => {
   if (disabled) {
     className += 'disable';
   }
+
   const [passwordShown, setPasswordShown] = useState(false);
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
   };
+  
   const eyeStyle = {marginLeft: -35, marginBottom: -10, color:'#989DA2' }
   const additionalInfoIconStyle = {color:(strongPassword ? '#007D50' : '#906800')}
 
