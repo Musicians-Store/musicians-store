@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "jslint": "^0.12.1"
   },
   "scripts": {},
   "eslintConfig": {},
