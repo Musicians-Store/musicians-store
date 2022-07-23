@@ -1,52 +1,71 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./button.css";
 import Loader from "../loader/loader";
 
-/* PROPS
-
-variant: primary (default) \ secondary \ tertiary \ destructive \ disabled
-
-hasIcon: left \ right \ icon-only \ null (default)
-
-onClick: reference any function here without calling the function (i.e. don't use the brackets after the name of the function)
-
-label: string
-
-loading? (default is not loading)
-
-*/
-
 const Button = (props) => {
-  const { label, variant, hasIcon, onClick, loading, icon } = props;
+  const { label, variant, hasIcon, onClick, loading, icon, className } = props;
   return (
     <button
       type="button"
       onClick={onClick}
-      className={`${
-        variant === ("secondary" || "tertiary" || "destructive" || "disabled")
-          ? variant
-          : "primary"
-      }
-        ${hasIcon === ("left" || "right" || "icon-only") ? hasIcon : ""}
-        ${loading ? "loading" : ""} ${props.className ? props.className : ""}`}
+      className={`${variant ? variant : "primary"}
+        ${hasIcon ? hasIcon : ""}
+        ${loading ? "loading" : ""} ${className ? className : ""}`}
     >
-      {loading && variant === ("primary" || "destructive" || "disabled") ? (
+      {loading &&
+      (variant === "primary" ||
+        variant === "destructive" ||
+        variant === "disabled") ? (
         <Loader variant={variant} size="xs" />
-      ) : loading && variant === ("secondary" || "tertiary") ? (
+      ) : loading && (variant === "secondary" || variant === "tertiary") ? (
         <Loader variant="secondary" size="xs" />
-      ) : hasIcon === ("left" || "icon-only") ? (
+      ) : hasIcon === "left" || hasIcon === "icon-only" ? (
         icon
       ) : null}
-      {hasIcon === "icon-only"
-        ? null
-        : loading
-        ? "Loading..."
-        : label
-        ? label
-        : null}
+      {hasIcon === "icon-only" ? null : loading ? (
+        <p>Loading...</p>
+      ) : label ? (
+        <p>{label}</p>
+      ) : null}
       {loading ? null : hasIcon === "right" ? icon : null}
     </button>
   );
+};
+
+Button.propTypes = {
+  variant: PropTypes.oneOf([
+    "primary",
+    "secondary",
+    "tertiary",
+    "destructive",
+    "disabled",
+  ]),
+
+  hasIcon: PropTypes.oneOf(["left", "right", "icon-only", null]),
+
+  /**
+   * Optional click handler. Reference any function here without calling the function (i.e.don't use the brackets after the name of the function)
+   */
+  onClick: PropTypes.func,
+
+  label: PropTypes.string,
+
+  loading: PropTypes.bool,
+
+  className: PropTypes.string,
+
+  icon: PropTypes.object,
+};
+
+Button.defaultProps = {
+  variant: "primary",
+  hasIcon: undefined,
+  label: undefined,
+  onClick: undefined,
+  loading: false,
+  className: undefined,
+  icon: undefined,
 };
 
 export default Button;
